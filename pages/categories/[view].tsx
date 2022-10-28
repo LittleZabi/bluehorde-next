@@ -20,13 +20,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: true,
   };
 };
-export default function View(props) {
-  console.log("props: ", props);
+
+export default function View(props: any) {
   return (
     <Layout
       title={props ? (props.slug + " Devices ").toUpperCase() : undefined}
     >
-      <div className='cat-view'>
+      <div className='cat-view fade-in'>
         <div className='page-size container'>
           <h2 className='title'>{props.slug} SMART DEVICES</h2>
           <div>

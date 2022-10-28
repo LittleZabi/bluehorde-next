@@ -1,0 +1,129 @@
+#, question
+0, editor is available at the bottom of the page to write and execute the scripts.]
+1, Write a program in C++ to print a welcome text in a separate line
+2, Write a program in C++ to print the sum of two numbers
+3, Write a program in C++ to find Size of fundamental data types
+4, Write a program in C++ to print the sum of two numbers using variables
+5, Write a program in C++ to check the upper and lower limits of integer
+6, Write a program in C++ to check whether the primitive values crossing the limits or not
+7, Write a program in C++ to display various type or arithmetic operation using mixed data type
+8, Write a program in C++ to check overflow/underflow during various arithmetical operation
+9, Write a program in C++ to display the operation of pre and post increment and decrement
+10, Write a program in C++ to formatting the output
+11, Write a program in C++ to print the result of the specified operations
+12, Write a program in C++ to add two numbers accept through keyboard
+13, Write a program in C++ to swap two numbers
+14, Write a program in C++ to calculate the volume of a sphere
+15, Write a program in C++ to calculate the volume of a cube
+16, Write a program in C++ to calculate the volume of a cylinder
+17, Write a program in C++ to find the Area and Perimeter of a Rectangle
+18, Write a program in C++ to find the area of any triangle using Heron's Formula
+19, Write a program in C++ to find the area and circumference of a circle
+20, Write a program in C++ to convert temperature in Celsius to Fahrenheit
+21, Write a program in C++ to convert temperature in Fahrenheit to Celsius
+22, Write a program in C++ to find the third angle of a triangle
+23, Write a program in C++ that converts kilometers per hour to miles per hour
+24, Write a program in C++ to convert temperature in Kelvin to Fahrenheit
+25, Write a program in C++ to convert temperature in Kelvin to Celsius.  Go to the editor
+Sample Output:
+Convert temperature in Kelvin to Celsius : 
+------------------------------------------------ 
+Input the temperature in Kelvin : 300 
+The temperature in Kelvin : 300 
+The temperature in Celsius : 26.85 
+Click me to see the sample solution
+26, Write a program in C++ to convert temperature in Fahrenheit to Kelvin.  Go to the editor
+Sample Output:
+Convert temperature in Fahrenheit to Kelvin : 
+--------------------------------------------------- 
+Input the temperature in Fahrenheit : 80.33 
+The temperature in Fahrenheit : 80.33 
+The temperature in Kelvin : 300
+Click me to see the sample solution
+27, Write a program in C++ to convert temperature in Celsius to Kelvin.  Go to the editor
+Sample Output: 
+Convert temperature in Celsius to Kelvin : 
+--------------------------------------------------- 
+Input the temperature in Celsius : 26.85 
+The temperature in Celsius : 26.85 
+The temperature in Kelvin : 300 
+Click me to see the sample solution
+28, Write a program in C++ to find the area of Scalene Triangle
+29, Write a program in C++ to compute quotient and remainder
+30, Write a program in C++ to compute the total and average of four numbers
+31, Write a program in C++ to input a single digit number and print a rectangular form of 4 columns and 6 rows
+32, Write a program in C++ to check whether a number is positive, negative or zero
+33, Write a program in C++ to divide two numbers and print on the screen
+34, Write a C++ program to display the current date and time
+35, Write a program in C++ to compute the specified expressions and print the output
+36, Write a program in C++ to test the Type Casting
+37, Write a program in C++ to print a mystery series from 1 to 50
+38, Write a program in C++ that takes a number as input and prints its multiplication table upto 10
+39, Write a program in C++ to print the following pattern
+40, Write a program in C++ to print the area and perimeter of a rectangle
+41, Write a program in C++ to print an American flag on the screen
+42, Write a language program in C++ which accepts the user's first and last name and print them in reverse order with a space between them
+43, Write a language program which accepts the radius of a circle from the user and compute the area and circumference
+44, Write a language program to get the volume of a sphere with radius 6
+45, Write a program in C++ to calculate the volume of a Cone
+46, Write a program in C++ to calculate the volume of a cylinder
+47, Write a program in C++ to calculate the sum of all even and odd numbers in an array
+48, Write a program in C++ which swap the values of two variables not using third variable
+49, Write a program in C++ to print the code (ASCII code / Unicode code etc.) of a given character
+50, Write a program in C++ to enter length in centimeter and convert it into meter and kilometer
+51, Write a program in C++ that converts kilometers per hour to miles per hour
+52, Write a program in C++ to enter two angles of a triangle and find the third angle
+53, Write a program in C++ to calculate area of an equilateral triangle
+54, Write a program in C++ to enter P, T, R and calculate Simple Interest
+55, Write a program in C++ to enter P, T, R and calculate Compound Interest
+56, Write a program in C++ to show the manipulation of a string
+57, Write a program in C++ to print the area of a hexagon
+58, Write a program in C++ to print the area of a polygon
+59, Write a program in C++ to compute the distance between two points on the surface of earth
+60, Write a program in C++ to add two binary numbers
+61, Write a C++ program to swap first and last digits of any number
+62, Write a C++ program to which reads an given integer n and prints a twin prime which has the maximum size among twin primes less than or equals to n
+63, Write a C++ program which prints three highest numbers from a list of numbers in descending order
+64, Write a C++ program to compute the sum of the two given integers and count the number of digits of the sum value
+65, Write a C++ program to check whether given length of three side form a right triangle
+66, Write a C++ program to add all the numbers from 1 to a given number
+67, Write a C++ program to which prints the central coordinate and the radius of a circumscribed circle of a triangle which is created by three points on the plane surface
+68, Write a C++ program to read seven numbers and sorts them in descending order
+69, Write a C++ program to read an integer n and prints the factorial of n, assume that n = 10
+70, Write a C++ program to replace all the lower-case letters of a given string with the corresponding capital letters.Go to the editor
+Click me to see the sample solution
+71, Write a C++ program which reads a sequence of integers and prints mode values of the sequence. The number of integers is greater than or equals to 1 and less than or equals to 100
+72, Write a C++ program to which reads n digits chosen from 0 to 9 and counts the number of combinations where the sum of the digits equals to given number. Do not use the same digits in a combination
+73, Write a C++ program that accepts sales unit price and sales quantity of various items and compute total sales amount and the average sales quantity. All input values must greater than or equal to 0 and less than or equal to 1,000, and the number of pairs of sales unit and sales quantity does not exceed 100. If a fraction occurs in the average of the sales quantity, round the first decimal place
+74, Write a C++ program that accepts various numbers and compute the difference between the highest number and the lowest number. All input numbers should be real numbers between 0 and 1,000,000. The output (real number) may include an error of 0.01 or less
+75, Write a C++ program to compute the sum of the specified number of Prime numbers
+76, An even number of 4 or more can be represented by the sum of two prime numbers. This is called Goldbach expectation, and it is confirmed that it is correct up to a considerably large number by computer calculation. For example, 10 can be expressed as the sum of two prime numbers 7 + 3, 5 + 5.
+Write a C++ program that accept an integer (n) from the user and outputs the number of combinations that express n as a sum of two prime numbers
+77, There are four different points on a plane: A(x1, y1), B(x2, y2), C(x3, y3) and D(x4, y4).
+Write a C++ program to check whether two straight lines AB and CD are orthogonal or not
+78, Write a C++ program to sum of all positive integers in a sentence
+79, Write a C++ program to display all the leap years between two given years. If there is no leap year in the given period,display a suitable message
+80, Write a C++ program that accepts n different numbers (0 to 100) and s which is equal to the sum of the n different numbers
+81, Write a C++ program to which replace all the words "dog" with "cat" Go to the editor
+Sample Text: The quick brown fox jumps over the lazy dog. You can assume that the number of characters in a text is less than or equal to 1000.
+Click me to see the sample solution
+82, Write a C++ program which reads a list of pairs of a word and a page number, and prints the word and a list of the corresponding page numbers.Go to the editor
+Click me to see the sample solution
+83, Write a C++ program to convert a given number into hours and minutes. Separate the number of hours and minutes with a colon
+84, Write a C++ program to check whether the sequence of the numbers in a given array is a "Arithmetic" or "Geometric" sequence. Return -1 if the sequenc is not "Arithmetic" or "Geometric"
+85, Write a C++ program find the total number of minutes between two given times (formatted with a colon and am or pm)
+86, Write a C++ program to add up all the digits between two given integers
+86, Code Editor:
+86, e to Come !
+86, not submit any solution of the above exercises at here, if you want to contribute go to the appropriate exercise page.
+0, re this Tutorial / Exercise on : Facebook
+and Twitter
+86, t is a segmentation fault?
+0, mentation fault is a specific kind of error caused by accessing memory that "does not belong to you." It's a helper mechanism that keeps you from corrupting the memory and introducing hard-to-debug memory bugs. Whenever you get a segfault you know you are doing something wrong with memory - accessing a variable that has already been freed, writing to a read-only portion of the memory, etc. Segmentation fault is essentially the same in most languages that let you mess with memory management, there is no principal difference between segfaults in C and C++.
+0, re are many ways to get a segfault, at least in the lower-level languages such as C(++). A common way to get a segfault is to dereference a null pointer:
+0, ther segfault happens when you try to write to a portion of memory that was marked as read-only:
+0, r *str = "Foo"; // Compiler marks the constant string as read-only
+0, r = 'b'; // Which means this is illegal and results in a segfault
+0, gling pointer points to a thing that does not exist anymore, like here:
+0, pointer p dangles because it points to the character variable c that ceased to exist after the block ended. And when you try to dereference dangling pointer (like *p='A'), you would probably get a segfault.
+0, : https://bit.ly/3ijsl3f

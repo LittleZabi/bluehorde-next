@@ -8,7 +8,7 @@ function Header() {
     <header>
       <nav className='page-size'>
         <ul>
-          <Link href='/index'>
+          <Link href='/'>
             <a>
               <span>{WEBSITE_NAME}</span>
             </a>

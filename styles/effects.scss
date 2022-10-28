@@ -1,0 +1,99 @@
+// fade in
+.hide{
+  opacity: 0;
+}
+.fade-in{
+    opacity: 0;
+    animation: fade-in 600ms ease-in forwards 1;
+  }
+  @keyframes fade-in {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  .fade-in-obsrvr-init{
+    animation: fade-obsrvr-out 600ms ease forwards 1;
+  }
+  @keyframes fade-obsrvr-out {
+    0%{
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+  .fade-in-obsrvr{
+    opacity: 0;
+    animation: fade-in-obsrvr 600ms ease-in forwards 1;
+  }
+  @keyframes fade-in-obsrvr {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  //slide effect
+.slide-in-obsrvr-init{
+    animation: slide-in-init 600ms ease-in forwards 1;
+}
+
+@keyframes slide-in-init {
+    0%{
+    }
+    100%{
+      opacity: 0;
+      transform: translateY(40px);
+    }
+  }
+.slide-in-obsrvr{
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slide-in 600ms ease-in forwards 1;
+}
+
+@keyframes slide-in {
+    0%{
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+
+  .from-right-init{
+    opacity: 0;
+  }
+  .from-right{
+    filter: blur(8px);
+    opacity: 0;
+    animation: fromRight 1s ease-in-out forwards 1;
+    transform: translateX(200px);
+    &.fr1{
+      animation-delay: 100ms;
+    }
+    &.fr2{
+      animation-delay: 200ms;
+    }
+    &.fr3{
+      animation-delay: 450ms;
+    }
+    &.fr4{
+      animation-delay: 300ms;
+    }
+  }
+  @keyframes fromRight {
+    0%{
+      transform: translateX(200px);
+    }
+    100%{
+      filter: blur(0px);
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }

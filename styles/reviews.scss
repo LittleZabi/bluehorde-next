@@ -1,0 +1,98 @@
+.reviews-8293{
+    color: black;
+    margin: 10px 0 0 0;
+    background-image: url(/media/assets/ellipses.svg);
+    background-size: 65%;
+    overflow: hidden;
+    & .mobile-title{
+        & .line-h{
+            background-color: #9cffa647;
+        }
+    }
+    & .rev-2832{
+        padding: 0px 10px;
+        margin: 10px 190px;
+       
+    }
+    & section{
+        margin: 10px 0 17px -11px;
+        min-height: 47px;
+        border-radius: 6px;
+        padding: 16px 14px;
+        box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.1803921569);
+        position: relative;
+        background-color: #ffffffe3;
+        -webkit-backdrop-filter: blur(4px);
+        backdrop-filter: blur(4px);
+        &::before{
+            content: " ";
+            border-left: 2px solid #00b0ff;
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            left: -13px;
+            top: 43px;
+        }
+        &.no-trail::before{
+            content: none;
+        }
+    }
+    & .profile{
+        background: #00b0ff;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 20px;
+        margin-left: -51px;
+        margin-right: 10px;
+        letter-spacing: 1px;
+        z-index: 1;
+        border:1px solid #00000030;
+    }
+    & .a92wqi{
+        margin-left: 5px;
+        margin-top: -56px;
+        & p{
+            font-weight: bold;
+            font-size: 15px;
+            color: #00b0ff;
+            padding: 0;
+            margin: 0;
+        }
+        & .a-23{
+            font-size: 14px;
+            font-weight: bold;
+            color: #000000ab;
+        }
+        & .a-382983{
+            font-size: 14px;
+            margin-left: 5px;
+            font-weight: bold;
+            & svg{
+                font-size: 14px;
+                margin-bottom: -2px;
+                margin-left: 0px;
+                color: #6e6e6e;
+            }
+        }
+        & .s-end83{
+            display: flex;
+            align-items: center;
+            height: 21px;
+            margin-bottom: 4px;
+        }
+    }
+    & .pro-987{
+        & svg{
+            margin-top: 4px;
+        }
+    }
+}
+.a8j3c{
+    overflow: hidden;
+}

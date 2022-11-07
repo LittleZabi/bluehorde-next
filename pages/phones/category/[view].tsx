@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
-import CatItemRender from "../../components/cat-item-ren";
-import Layout from "../../components/Layout";
-import { getCatItem } from "../../lib/data-store";
+import CatItemRender from "../../../components/cat-item-ren";
+import Layout from "../../../components/Layout";
+import { getCatItem } from "../../../lib/data-store";
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug: any = context.params.view;
   const category = JSON.parse(await getCatItem(slug));
@@ -42,9 +42,9 @@ export default function View(props: any) {
                   <FaChevronRight />
                 </a>
               </Link>
-              <Link href='/categories'>
+              <Link href='/phones'>
                 <a>
-                  Categories
+                  phones
                   <FaChevronRight />
                 </a>
               </Link>

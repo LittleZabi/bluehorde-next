@@ -1,12 +1,17 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
-import CatItemRender from "../../components/cat-item-ren";
-import Layout from "../../components/Layout";
-import { getCatItem } from "../../lib/data-store";
+import CatItemRender from "../../../components/cat-item-ren";
+import Layout from "../../../components/Layout";
+import { getLaptopCatItems } from "../../../lib/data-store";
+import { laptopCatItemsCount } from "../../../utils/data-counter";
 export const getStaticProps: GetStaticProps = async (context) => {
-  const slug: any = context.params.view;
-  const category = JSON.parse(await getCatItem(slug));
+  const slug: any = context.params.view[0];
+  let page: number | string = 0;
+  page = context.params.view[1] ?? 0;
+  const category = JSON.parse(await getLaptopCatItems(slug, page));
+  const total_pages = laptopCatItemsCount();
+  console.log("total data: ", total_pages);
   return {
     props: {
       category,
@@ -32,7 +37,7 @@ export default function View(props: any) {
             <picture>
               <img src={`/media/logos/${props.slug}.png`} alt={props.slug} />
             </picture>{" "}
-            SMART DEVICES
+            Brand Laptop
           </h2>
           <div>
             <div className='breadcrumb'>
@@ -42,9 +47,9 @@ export default function View(props: any) {
                   <FaChevronRight />
                 </a>
               </Link>
-              <Link href='/categories'>
+              <Link href='/laptops'>
                 <a>
-                  Categories
+                  laptops
                   <FaChevronRight />
                 </a>
               </Link>
@@ -53,7 +58,7 @@ export default function View(props: any) {
           </div>
           <div className='product-list'>
             {props.category?.map((e: any, i: number) => {
-              return <CatItemRender key={i} data={e} />;
+              return <CatItemRender key={i} data={e} renderAs='laptops' />;
             })}
           </div>
         </div>

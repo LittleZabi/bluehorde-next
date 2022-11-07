@@ -3,10 +3,10 @@ import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { fadeIn } from "../utils/intersection-options";
 
-const ProductCategRender = ({ item }: any) => {
+const ProductCategRender = ({ item, asRender }: any) => {
   const { ref, inView, entry } = useInView(fadeIn);
   return (
-    <Link href={`/categories/${item.category}`}>
+    <Link href={`/${asRender}/${item.category}`}>
       <a>
         <section
           ref={ref}

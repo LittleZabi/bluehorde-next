@@ -35,5 +35,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 public/media/phones
+public/media/laptops
 public/media/phones_k.zip
 

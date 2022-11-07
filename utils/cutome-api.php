@@ -7,7 +7,7 @@ if(isset($_GET['get-withdrawals'])){
     $con = mysqli_connect(_HOST, _USERNAME, _PASSWORD,_DATABASE);
     $sql = 'SELECT COUNT(*) AS total FROM withdrawals';
     $q = $con->query($sql);
-    $data = [];
+    $data = []; 
     if($q->num_rows > 0){
         while($row = $q->fetch_assoc()) $data[] = $row;
     }

@@ -22,7 +22,7 @@
                       e.date
                     ).toDateString()}</span>
                   </div>
-                  <div class="htlst2">${parseInt(e.amount).toFixed(1)}${
+                  <div class="htlst2">Total: ${parseInt(e.amount).toFixed(1)}${
                 e.currency ? e.currency : "USD"
               }</div>
                 </div>`;
@@ -36,7 +36,7 @@
                       e.date
                     ).toDateString()}</span>
                   </div>
-                  <div class="htlst2">${parseInt(e.amount).toFixed(1)}${
+                  <div class="htlst2">Total: ${parseInt(e.amount).toFixed(1)}${
                 e.currency ? e.currency : "USD"
               }</div>
                 </div>`;
@@ -60,17 +60,19 @@
 .a-x8xlq {
   display: flex;
   justify-content: center;
+  flex-direction: column;
 }
-section {
+.a-x8xlq section {
   padding: 10px;
 
 }
 
 .a-8xpqt {
   display: flex;
-  width: 361px;
-  justify-content: space-between;
+  width: 316px;
+  justify-content: flex-start;
   padding: 11px 19px;
+  flex-direction: column;
 }
 .bn392 {
   display: flex;
@@ -78,7 +80,7 @@ section {
 }
 .u-ees {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   font-family: "Poppins", sans-serif;
   text-transform: capitalize;
 }
@@ -89,14 +91,13 @@ section {
   color: #2b2b2d;
 }
 .htlst2 {
-  font-size: 18px;
+  font-size: 14px;
   font-family: "Poppins", sans-serif;
-  font-weight: bold;
-  color: #00c4ff;
-  text-transform: uppercase;
+  color: #0099fe;
+  margin-left: 29px;
 }
 .yt02l {
-  margin: 50px 20px;
+  margin: 20px 20px;
 }
 .yt02l h3 {
   font-family: "Poppins", sans-serif;
@@ -111,9 +112,12 @@ section {
   font-size: 32px;
 }
 .l-dkxlx{
+  display: flex;
   color: #0099ff;
+  flex-wrap: wrap;
   border-radius: 4px;
   box-shadow: 0 0 16px 1px #0000001c;
+  justify-content: center;
 }
 </style>
     <div class="col-lg-8">

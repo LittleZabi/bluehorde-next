@@ -1,5 +1,5 @@
-import { FaSortAlphaDown, FaSortAlphaUp, FaSortAmountUp } from "react-icons/fa";
-export default function FilterCompo({ categories, setCateItems }) {
+import { FaSearch } from "react-icons/fa";
+export default function FilterCompo({ categories, setCateItems, parentName }) {
   const resetCatItems = () => {
     setCateItems(null);
   };
@@ -35,22 +35,17 @@ export default function FilterCompo({ categories, setCateItems }) {
   return (
     <div className='page-size filter-sec'>
       <div>
-        <button onClick={() => sortBy("a-z")}>
-          <FaSortAlphaDown />
-        </button>
-        <button onClick={() => sortBy("z-a")}>
-          <FaSortAlphaUp />
-        </button>
-        <button>
-          <FaSortAmountUp />
-        </button>
+        <h5>Search in {parentName}</h5>
       </div>
       <div>
-        <input
-          type='search'
-          onChange={handleSearch}
-          placeholder='Search here...'
-        />
+        <div className='search-ksl832'>
+          <FaSearch />
+          <input
+            type='search'
+            onChange={handleSearch}
+            placeholder={`Search in ${parentName}...`}
+          />
+        </div>
       </div>
     </div>
   );

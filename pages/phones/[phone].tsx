@@ -1,6 +1,6 @@
 import Layout from "../../components/Layout";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { getPhone } from "../../modules/categories-mod";
+import { getPhone } from "../../lib/data-store";
 import { DisplaySizes } from "../../utils/common";
 import PPricingRender from "../../components/render-phone-pricing";
 import RenderSpecs from "../../components/phone-specs-render";

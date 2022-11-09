@@ -1,8 +1,8 @@
 import { laptopsModal } from "../lib/modals";
 import db from "./db";
 
-export const laptopCatItemsCount = () => {
-  db.connect();
-  let t = laptopsModal.count();
+export const laptopCatItemsCount = async () => {
+  await db.connect();
+  let t = await laptopsModal.count();
   return t;
 };

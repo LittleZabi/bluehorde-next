@@ -1,21 +1,21 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
+import BreadCrumb from "../../../components/breadcrumb";
 import CatItemRender from "../../../components/cat-item-ren";
 import Layout from "../../../components/Layout";
+import Pagination from "../../../components/pagination";
 import { getLaptopCatItems } from "../../../lib/data-store";
-import { laptopCatItemsCount } from "../../../utils/data-counter";
 export const getStaticProps: GetStaticProps = async (context) => {
   const slug: any = context.params.view[0];
-  let page: number | string = 0;
-  page = context.params.view[1] ?? 0;
-  const category = JSON.parse(await getLaptopCatItems(slug, page));
-  const total_pages = laptopCatItemsCount();
-  console.log("total data: ", total_pages);
+  let page: number | string = 1;
+  page = context.params.view[1] ?? 1;
+  const categories = JSON.parse(await getLaptopCatItems(slug, page));
   return {
     props: {
-      category,
+      categories,
       slug,
+      page,
     },
   };
 };
@@ -39,29 +39,25 @@ export default function View(props: any) {
             </picture>{" "}
             Brand Laptop
           </h2>
-          <div>
-            <div className='breadcrumb'>
-              <Link href='/'>
-                <a>
-                  Home
-                  <FaChevronRight />
-                </a>
-              </Link>
-              <Link href='/laptops'>
-                <a>
-                  laptops
-                  <FaChevronRight />
-                </a>
-              </Link>
-              {props.slug}
-            </div>
-          </div>
+          <BreadCrumb
+            page={props.page}
+            slug={props.slug}
+            renderFor={"laptops"}
+          />
           <div className='product-list'>
-            {props.category?.map((e: any, i: number) => {
+            {props.categories?.map((e: any, i: number) => {
               return <CatItemRender key={i} data={e} renderAs='laptops' />;
             })}
           </div>
         </div>
+        {props.slug && (
+          <Pagination
+            pageNo={Number(props.page)}
+            renderFor={`/laptops/category/${props.slug}`}
+            api_qstrings={`laptops=1&category=${props.slug}`}
+          />
+        )}
+        <br />
       </div>
     </Layout>
   );

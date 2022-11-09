@@ -1,16 +1,21 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
+import BreadCrumb from "../../../components/breadcrumb";
 import CatItemRender from "../../../components/cat-item-ren";
 import Layout from "../../../components/Layout";
+import Pagination from "../../../components/pagination";
 import { getCatItem } from "../../../lib/data-store";
 export const getStaticProps: GetStaticProps = async (context) => {
-  const slug: any = context.params.view;
-  const category = JSON.parse(await getCatItem(slug));
+  const slug: any = context.params.view[0];
+  let page: number | string = 0;
+  page = context.params.view[1] ?? 1;
+  const category = JSON.parse(await getCatItem(slug, page));
   return {
     props: {
       category,
       slug,
+      page,
     },
   };
 };
@@ -34,29 +39,26 @@ export default function View(props: any) {
             </picture>{" "}
             SMART DEVICES
           </h2>
-          <div>
-            <div className='breadcrumb'>
-              <Link href='/'>
-                <a>
-                  Home
-                  <FaChevronRight />
-                </a>
-              </Link>
-              <Link href='/phones'>
-                <a>
-                  phones
-                  <FaChevronRight />
-                </a>
-              </Link>
-              {props.slug}
-            </div>
-          </div>
+          <BreadCrumb
+            page={props.page}
+            slug={props.slug}
+            renderFor={"phones"}
+          />
           <div className='product-list'>
             {props.category?.map((e: any, i: number) => {
               return <CatItemRender key={i} data={e} />;
             })}
           </div>
         </div>
+        {props.slug && (
+          <Pagination
+            pageNo={Number(props.page)}
+            renderFor={`/phones/category/${props.slug}`}
+            api_qstrings={`phones=1&category=${props.slug}`}
+          />
+        )}
+
+        <br />
       </div>
     </Layout>
   );

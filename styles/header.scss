@@ -1,6 +1,18 @@
 header {
   background: rgb(0, 0, 0);
   color: $primary-color;
+  z-index: 2;
+  height: 60px;
+  position: relative;
+  text-align: center;
+  & .header-bg{
+    position: absolute;
+    z-index: -1;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 19px;
+  }
   & nav {
     height: 50px;
     display: flex;
@@ -74,31 +86,41 @@ header {
         z-index: 1;
         position: absolute;
         display: none;
+        
+        & a{
+          margin-top: 6px;
+          text-align: left;
+          padding: 9px 13px;
+          background: #ff005705;
+          border-radius: 3px;
+          min-width: 192px;
+          color: black;
+          font-weight: normal;
+        }
         & .i93kx{
           z-index: 1;
           padding: 5px;
           border-radius: 6px;
-          background: black;
+          background: #ffffff;
           position: relative;
           margin-top: 33px;
+          box-shadow: 1px 5px 7px 0px #0000001f;
           &::before{
             content: " ";
             width: 20px;
             height: 20px;
-            background-color: black;
+            background-color: white;
             display: block;
             transform: rotate(45deg);
             border-radius: 1px;
             margin: -15px auto 7px 17px;
           }
-        }
-        & a{
-          margin-top: 6px;
-          text-align: left;
-          padding: 9px 13px;
-          background: #5e60644a;
-          border-radius: 3px;
-          min-width: 192px;
+          & a{
+            background: #f4433605;
+            &:hover{
+              background: #f443361a
+            }
+          }
         }
       }
     }

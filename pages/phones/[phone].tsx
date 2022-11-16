@@ -1,29 +1,13 @@
 import Layout from "../../components/Layout";
-import { GetStaticPaths, GetStaticProps } from "next";
-import { getPhone } from "../../lib/data-store";
 import { DisplaySizes } from "../../utils/common";
 import PPricingRender from "../../components/render-phone-pricing";
 import RenderSpecs from "../../components/phone-specs-render";
-import { FaFire, FaHeart, FaThumbsDown, FaThumbsUp } from "react-icons/fa";
+import { FaFire, FaHeart, FaThumbsDown } from "react-icons/fa";
 import { EcomStore } from "../../utils/ecom-store-list";
 import Reviews from "../../components/reviews";
 import { useInView } from "react-intersection-observer";
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slug: any = context.params.phone;
-  const phone = JSON.parse(await getPhone(slug));
-  return {
-    props: {
-      phone,
-    },
-  };
-};
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
-export default function MobileView(props) {
+import { getPhone } from "../../lib/data-store";
+export default function MobileView(props: any) {
   const items = props.phone && props.phone[0];
   const middleViews = (c: string) => {
     if (c === "camera") {
@@ -273,4 +257,14 @@ export default function MobileView(props) {
       </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  const slug: any = context.params.phone;
+  const phone = JSON.parse(await getPhone(slug));
+  return {
+    props: {
+      phone,
+    },
+  };
 }

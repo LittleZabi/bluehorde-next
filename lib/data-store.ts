@@ -4,7 +4,10 @@ import { itemPerPage } from "../utils/config";
 
 export async function getCategories(type: string) {
   await db.connect();
-  const data: any = await categoriesModal.find({ type: type }, { _id: 0 });
+  const data: any = await categoriesModal.find(
+    { type: type },
+    { _id: 0, type: 0, image: 0 }
+  );
   return JSON.stringify(data);
 }
 export const getLaptopCatItems = async (slug: string, page: any) => {
@@ -30,6 +33,21 @@ export const getCatItem = async (slug: string, page: any) => {
 };
 export const getPhone = async (slug: any) => {
   await db.connect();
-  const item: object = await smartModal.find({ slug: slug });
+  const item: object = await smartModal.find(
+    { slug: slug },
+    {
+      _id: 0,
+      category: 0,
+      createdAt: 0,
+      original: 0,
+      cat_id: 0,
+      img_uploaded: 0,
+    }
+  );
+  return JSON.stringify(item);
+};
+export const getLaptop = async (slug: any) => {
+  await db.connect();
+  const item: object = await laptopsModal.find({ slug: slug }, { _id: 0 });
   return JSON.stringify(item);
 };

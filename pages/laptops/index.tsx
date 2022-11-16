@@ -6,15 +6,7 @@ import { useState } from "react";
 import FilterCompo from "../../components/filter-compo";
 import Layout from "../../components/Layout";
 import CatTopView from "../../components/cat-page-top";
-export const getStaticProps: GetStaticProps = async (context) => {
-  const categories = JSON.parse(await getCategories("laptops"));
-  return {
-    props: {
-      categories,
-    },
-  };
-};
-export default function laptops(props: any) {
+export default function Laptops(props: any) {
   const [catItems, setCateItems] = useState<any>();
   return (
     <Layout title={"Show Room "}>
@@ -48,4 +40,12 @@ export default function laptops(props: any) {
       </div>
     </Layout>
   );
+}
+export async function getServerSideProps(context: any) {
+  const categories = JSON.parse(await getCategories("laptops"));
+  return {
+    props: {
+      categories,
+    },
+  };
 }

@@ -1,30 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import Link from "next/link";
-import { FaChevronRight } from "react-icons/fa";
 import BreadCrumb from "../../../components/breadcrumb";
 import CatItemRender from "../../../components/cat-item-ren";
 import Layout from "../../../components/Layout";
 import Pagination from "../../../components/pagination";
 import { getLaptopCatItems } from "../../../lib/data-store";
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slug: any = context.params.view[0];
-  let page: number | string = 1;
-  page = context.params.view[1] ?? 1;
-  const categories = JSON.parse(await getLaptopCatItems(slug, page));
-  return {
-    props: {
-      categories,
-      slug,
-      page,
-    },
-  };
-};
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
 
 export default function View(props: any) {
   return (
@@ -61,4 +40,22 @@ export default function View(props: any) {
       </div>
     </Layout>
   );
+}
+export async function getServerSideProps(context: any) {
+  const slug: any = context.params.view[0];
+  let page: number | string = 1;
+  page = context.params.view[1] ?? 1;
+  const categories = JSON.parse(await getLaptopCatItems(slug, page));
+  if (categories.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      categories,
+      slug,
+      page,
+    },
+  };
 }

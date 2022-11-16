@@ -6,25 +6,6 @@ import CatItemRender from "../../../components/cat-item-ren";
 import Layout from "../../../components/Layout";
 import Pagination from "../../../components/pagination";
 import { getCatItem } from "../../../lib/data-store";
-export const getStaticProps: GetStaticProps = async (context) => {
-  const slug: any = context.params.view[0];
-  let page: number | string = 0;
-  page = context.params.view[1] ?? 1;
-  const category = JSON.parse(await getCatItem(slug, page));
-  return {
-    props: {
-      category,
-      slug,
-      page,
-    },
-  };
-};
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: true,
-  };
-};
 
 export default function View(props: any) {
   return (
@@ -46,7 +27,7 @@ export default function View(props: any) {
           />
           <div className='product-list'>
             {props.category?.map((e: any, i: number) => {
-              return <CatItemRender key={i} data={e} />;
+              return <CatItemRender key={i} data={e} renderAs='phones' />;
             })}
           </div>
         </div>
@@ -62,4 +43,23 @@ export default function View(props: any) {
       </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  const slug: any = context.params.view[0];
+  let page: number | string = 0;
+  page = context.params.view[1] ?? 1;
+  const category = JSON.parse(await getCatItem(slug, page));
+  if (category.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      category,
+      slug,
+      page,
+    },
+  };
 }

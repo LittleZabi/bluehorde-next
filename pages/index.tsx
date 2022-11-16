@@ -10,7 +10,12 @@ export default function Home() {
           <div className='ieotax'>
             <section className='flex-center'>
               <div className='blue-xls'>
-                <img src='/media/images/smart-watch.jpg' alt='' />
+                <picture>
+                  <img
+                    src='/media/images/smart-watch.jpg'
+                    alt='smart watch image'
+                  />
+                </picture>
               </div>
               <div className='blue-xls'>
                 <img src='/media/images/shoes-1.jpg' alt='' />

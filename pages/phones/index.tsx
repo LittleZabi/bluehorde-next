@@ -1,20 +1,11 @@
 import { getCategories } from "../../lib/data-store";
-import { GetStaticProps } from "next";
 import ProductCategRender from "../../components/phone-cat-renders";
 import RightSide from "../../components/right-side";
 import { useState } from "react";
 import FilterCompo from "../../components/filter-compo";
 import Layout from "../../components/Layout";
 import CatTopView from "../../components/cat-page-top";
-export const getStaticProps: GetStaticProps = async (context) => {
-  const categories = JSON.parse(await getCategories("phone"));
-  return {
-    props: {
-      categories,
-    },
-  };
-};
-export default function phones(props: any) {
+export default function Phones(props: any) {
   const [catItems, setCateItems] = useState<any>();
   return (
     <Layout title={"Show Room "}>
@@ -48,4 +39,12 @@ export default function phones(props: any) {
       </div>
     </Layout>
   );
+}
+export async function getServerSideProps(context: any) {
+  const categories = JSON.parse(await getCategories("phone"));
+  return {
+    props: {
+      categories,
+    },
+  };
 }

@@ -217,7 +217,7 @@ export default function MobileView(props: any) {
                         <section>
                           {items["fingerprint"] != undefined && (
                             <>
-                              {!items["fingerprint"] ? (
+                              {items["fingerprint"] ? (
                                 <FaCheck className='check' />
                               ) : (
                                 <FaTimes className='no-check' />

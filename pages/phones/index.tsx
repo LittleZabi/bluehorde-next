@@ -5,12 +5,14 @@ import { useState } from "react";
 import FilterCompo from "../../components/filter-compo";
 import Layout from "../../components/Layout";
 import CatTopView from "../../components/cat-page-top";
+import Search from "../../components/search-component";
 export default function Phones(props: any) {
   const [catItems, setCateItems] = useState<any>();
   return (
     <Layout title={"Show Room "}>
       <div className='products fade-in'>
         <CatTopView title='Mobile' />
+        <Search className={"phones-uw3kxz"} />
         <FilterCompo
           parentName={"phone categories"}
           categories={props.categories}

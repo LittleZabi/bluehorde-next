@@ -1,21 +1,22 @@
-import { BsSearch } from "react-icons/bs";
 import { useInView } from "react-intersection-observer";
+import Search from "./search-component";
 function MiddleView() {
   const { ref, inView, entry } = useInView({
     threshold: 0,
     root: null,
     rootMargin: "0px",
   });
+
   return (
-    <div className='middle'>
-      <div>
+    <div className='middle-view'>
+      <div className='middle-bg'>
         <picture>
           <img src='/media/images/jungle.jpg' alt='middle view image' />
         </picture>
         <div></div>
       </div>
-      <section>
-        <div className='page-size'>
+      <section className='ap9xs'>
+        <div>
           <h1
             ref={ref}
             className={inView ? "from-right fr1" : "from-right-init"}
@@ -46,23 +47,9 @@ function MiddleView() {
           >
             All is transparent
           </h4>
-          <button
-            ref={ref}
-            className={inView ? "from-right fr4" : "from-right-init"}
-          >
-            Learn More
-          </button>
         </div>
+        <Search />
       </section>
-      <div className='blue-ii1sx'>
-        <div
-          ref={ref}
-          className={inView ? "from-right fr1" : "from-right-init"}
-        >
-          <input type='input' placeholder='Take easy to find! search here...' />
-          <BsSearch />
-        </div>
-      </div>
     </div>
   );
 }

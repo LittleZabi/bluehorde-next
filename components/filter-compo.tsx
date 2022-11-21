@@ -1,4 +1,12 @@
-import { FaSearch } from "react-icons/fa";
+import Link from "next/link";
+import {
+  FaSearch,
+  FaSortAlphaDown,
+  FaSortAlphaUp,
+  FaSortAmountUp,
+  FaSortUp,
+} from "react-icons/fa";
+import Search from "./search-component";
 export default function FilterCompo({ categories, setCateItems, parentName }) {
   const resetCatItems = () => {
     setCateItems(null);
@@ -38,14 +46,19 @@ export default function FilterCompo({ categories, setCateItems, parentName }) {
         <h5>Search in {parentName}</h5>
       </div>
       <div>
-        <div className='search-ksl832'>
-          <FaSearch />
-          <input
-            type='search'
-            onChange={handleSearch}
-            placeholder={`Search in ${parentName}...`}
-          />
-        </div>
+        <Search className={"phones-uw3kxz"} />
+      </div>
+      <div className='filter-button'>
+        <Link href=''>
+          <picture title='sort by a to z'>
+            <img src='/media/assets/a-z.svg' alt='a-to-z' />
+          </picture>
+        </Link>
+        <Link href='' title='sort by z to a'>
+          <picture title='sort by z to a'>
+            <img src='/media/assets/z-a.svg' alt='a-to-z' />
+          </picture>
+        </Link>
       </div>
     </div>
   );

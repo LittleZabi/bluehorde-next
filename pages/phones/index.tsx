@@ -4,15 +4,21 @@ import RightSide from "../../components/right-side";
 import { useState } from "react";
 import FilterCompo from "../../components/filter-compo";
 import Layout from "../../components/Layout";
-import CatTopView from "../../components/cat-page-top";
 import Search from "../../components/search-component";
 export default function Phones(props: any) {
   const [catItems, setCateItems] = useState<any>();
   return (
-    <Layout title={"Show Room "}>
+    <Layout title={"Phones Categories"}>
       <div className='products fade-in'>
-        <CatTopView title='Mobile' />
-        <Search className={"phones-uw3kxz"} />
+        <div className='top-view'>
+          <picture>
+            <img
+              src='/media/assets/categ-view-top-layer.svg'
+              alt='top view image layer'
+            />
+          </picture>
+        </div>
+
         <FilterCompo
           parentName={"phone categories"}
           categories={props.categories}

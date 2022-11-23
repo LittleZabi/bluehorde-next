@@ -1,22 +1,23 @@
 import { getCategories } from "../../lib/data-store";
-import { GetStaticProps } from "next";
 import ProductCategRender from "../../components/laptop-cat-renders";
 import RightSide from "../../components/right-side";
 import { useState } from "react";
 import FilterCompo from "../../components/filter-compo";
 import Layout from "../../components/Layout";
-import Search from "../../components/search-component";
 export default function Laptops(props: any) {
   const [catItems, setCateItems] = useState<any>();
   return (
-    <Layout title={"Show Room "}>
+    <Layout title={"Laptops Categories "}>
       <div className='products fade-in'>
-        <Search className={"phones-uw3kxz"} />
-        <FilterCompo
-          parentName={"laptops categories"}
-          categories={props.categories}
-          setCateItems={setCateItems}
-        />
+        <div className='top-view'>
+          <picture>
+            <img
+              src='/media/assets/categ-view-top-layer.svg'
+              alt='top view image layer'
+            />
+          </picture>
+        </div>
+        <FilterCompo parentName={"laptops categories"} />
         <div className='page-size items categ-flex'>
           <div className='container'>
             {catItems && catItems.length > 0

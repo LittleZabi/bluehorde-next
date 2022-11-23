@@ -67,7 +67,7 @@
     background: #1b1962d9;
     border-radius: 14px;
     color: white;
-    height: 189px;
+    height: 200px;
     margin-top: 111px !important;
     margin-left: 112px;
     text-align: center;
@@ -82,7 +82,7 @@
         font-size: 11px;
         display: block;
         position: relative;
-        width: 78px;
+        width: 113px;
         &::after{
           content: " ";
           width:30px;
@@ -180,7 +180,6 @@
 }
 .mobile-middle {
   background: $phone-bg-color1;
-  margin-top: -92px;
   color: $reflex-phone-bg-color1;
   min-height: 200px;
  
@@ -415,6 +414,7 @@
   }
 }
 .laptop-view{
+  overflow: hidden;
   .specifications section 
   {
       & svg{
@@ -434,6 +434,7 @@
   }
   & .mobile-top-taxc-view {
     justify-content: space-between;
+    // overflow: hidden;
     & picture{
       margin-bottom: 77px;
       z-index: -1;

@@ -1,7 +1,6 @@
 "use strict";
 const blueRex = {
   setParams: (data, url = "") => {
-    if (Object.keys(data).length < 1) return "";
     let h = "";
     for (let k in data) h += k + "=" + data[k] + "&";
     if (h.substr(-1) === "&") h = h.substring(0, h.length - 1);

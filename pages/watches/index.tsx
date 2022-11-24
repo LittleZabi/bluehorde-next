@@ -24,14 +24,14 @@ export default function Phones(props: any) {
               ? catItems.map((item: any, i: number) => (
                   <ProductCategRender
                     key={i}
-                    asRender='phones/category'
+                    asRender='watches/category'
                     item={item}
                   />
                 ))
               : props.categories.map((item: any, i: number) => (
                   <ProductCategRender
                     key={i}
-                    asRender='phones/category'
+                    asRender='watches/category'
                     item={item}
                   />
                 ))}
@@ -43,7 +43,7 @@ export default function Phones(props: any) {
   );
 }
 export async function getServerSideProps(context: any) {
-  let categories = JSON.parse(await getCategories("phone"));
+  let categories = JSON.parse(await getCategories("watches"));
   function sortBy(sort: string) {
     if (sort === "a-z")
       categories = categories.sort(function (a: any, b: any) {

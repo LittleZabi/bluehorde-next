@@ -262,6 +262,11 @@ export default function MobileView(props: any) {
 export async function getServerSideProps(context: any) {
   const slug: any = context.params.phone;
   const phone = JSON.parse(await getPhone(slug));
+  if (phone.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
       phone,

@@ -26,6 +26,19 @@ const smartSchema = new mongoose.Schema(
     strict: false,
   }
 );
+const watchesSchema = new mongoose.Schema(
+  {
+    name: { type: String, required: true },
+    brief_scrap: { type: Object, required: true },
+    mobile_specs: { type: Object, required: true },
+    mobile_pricing: { type: Object, required: true },
+    original: { type: String, required: false },
+  },
+  {
+    timestamps: true,
+    strict: false,
+  }
+);
 
 const categoriesSchema = new mongoose.Schema(
   {
@@ -46,3 +59,6 @@ export const laptopsModal: any =
 export const smartModal: any =
   mongoose.models.mobile_devices ||
   mongoose.model("mobile_devices", smartSchema);
+export const watchesModal: any =
+  mongoose.models.smart_watches ||
+  mongoose.model("smart_watches", watchesSchema);

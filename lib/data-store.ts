@@ -1,4 +1,9 @@
-import { categoriesModal, smartModal, laptopsModal } from "./modals";
+import {
+  categoriesModal,
+  smartModal,
+  laptopsModal,
+  watchesModal,
+} from "./modals";
 import db from "../utils/db";
 import { itemPerPage } from "../utils/config";
 
@@ -21,6 +26,16 @@ export const getLaptopCatItems = async (slug: string, page: any) => {
   return JSON.stringify(item);
 };
 
+export const getWatchesCatItem = async (slug: string, page: any) => {
+  page = Number(page);
+  await db.connect();
+  const skipping = page === 1 ? 0 : (page - 1) * itemPerPage;
+  const item: object = await watchesModal
+    .find({ category: slug }, { _id: 0, image: 1, name: 1, slug: 1 })
+    .skip(skipping)
+    .limit(itemPerPage);
+  return JSON.stringify(item);
+};
 export const getCatItem = async (slug: string, page: any) => {
   page = Number(page);
   await db.connect();
@@ -29,6 +44,22 @@ export const getCatItem = async (slug: string, page: any) => {
     .find({ category: slug }, { _id: 0, image: 1, name: 1, slug: 1 })
     .skip(skipping)
     .limit(itemPerPage);
+  return JSON.stringify(item);
+};
+export const getWatch = async (slug: any) => {
+  await db.connect();
+  const item: object = await watchesModal.find(
+    { slug: slug },
+    {
+      _id: 0,
+      category: 0,
+      createdAt: 0,
+      original: 0,
+      cat_id: 0,
+      from: 0,
+      img_uploaded: 0,
+    }
+  );
   return JSON.stringify(item);
 };
 export const getPhone = async (slug: any) => {
@@ -41,6 +72,7 @@ export const getPhone = async (slug: any) => {
       createdAt: 0,
       original: 0,
       cat_id: 0,
+      from: 0,
       img_uploaded: 0,
     }
   );

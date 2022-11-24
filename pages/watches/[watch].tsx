@@ -2,18 +2,26 @@ import Layout from "../../components/Layout";
 import { DisplaySizes } from "../../utils/common";
 import PPricingRender from "../../components/render-phone-pricing";
 import RenderSpecs from "../../components/phone-specs-render";
-import { FaFire, FaHeart, FaThumbsDown } from "react-icons/fa";
+import {
+  FaFeather,
+  FaFeatherAlt,
+  FaFire,
+  FaHeart,
+  FaStopwatch,
+  FaTerminal,
+  FaThumbsDown,
+} from "react-icons/fa";
 import { EcomStore } from "../../utils/ecom-store-list";
 import Reviews from "../../components/reviews";
 import { useInView } from "react-intersection-observer";
-import { getPhone } from "../../lib/data-store";
+import { getWatch } from "../../lib/data-store";
 export default function MobileView(props: any) {
-  const items = props.phone && props.phone[0];
+  const items = props.watch && props.watch[0];
+  console.log("release: ", items);
   const middleViews = (c: string) => {
     if (c === "camera") {
       let y = items?.short_detail["main-camera"];
       if (!y || y === "") {
-        console.log(y);
         y = items?.mobile_specs?.filter(
           (e: any) => e.name.toLowerCase() === "network"
         );
@@ -133,7 +141,7 @@ export default function MobileView(props: any) {
                     <img
                       src='/media/assets/calendar.png'
                       alt='release date'
-                      title='Phone Release date'
+                      title='watch Release date'
                     />
                   </picture>
                   <p>Release date</p>
@@ -144,14 +152,8 @@ export default function MobileView(props: any) {
                 </section>
                 <span className='line-v'></span>
                 <section>
-                  <picture>
-                    <img
-                      src='/media/assets/phone.png'
-                      alt='phone body'
-                      title='phone body information'
-                    />
-                  </picture>
-                  <p>Phone Body</p>
+                  <FaFeatherAlt />
+                  <p>Watch Dimension</p>
                   <span>
                     {items?.brief_scrap["thickness"] ?? "195g, 8.8mm thickness"}
                   </span>
@@ -178,7 +180,7 @@ export default function MobileView(props: any) {
                       title='mobile chip info'
                     />
                   </picture>
-                  <p>Phone Memory</p>
+                  <p>Watch Memory</p>
                   <span>
                     {items?.brief_scrap["Memory"] ??
                       items?.mobile_specs.filter(
@@ -260,11 +262,16 @@ export default function MobileView(props: any) {
 }
 
 export async function getServerSideProps(context: any) {
-  const slug: any = context.params.phone;
-  const phone = JSON.parse(await getPhone(slug));
+  const slug: any = context.params.watch;
+  const watch = JSON.parse(await getWatch(slug));
+  if (watch.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
   return {
     props: {
-      phone,
+      watch,
     },
   };
 }

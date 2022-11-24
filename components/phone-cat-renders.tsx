@@ -28,7 +28,7 @@ const ProductCategRender = ({ item, asRender }: any) => {
           <div className='center'>
             <h3>{item.items}+ Modals</h3>
             <h2>{item.category}</h2>
-            <h4>Better normal for all</h4>
+            <h4>click to see products</h4>
           </div>
         </section>
       </a>

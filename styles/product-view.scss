@@ -22,7 +22,12 @@
       margin-bottom: 100px;
     }
     & a {
-      margin: 0px 10px 40px 10px;
+      margin: 0px 8px 33px 8px;
+    }
+    & .list{
+      & a{
+        margin: 0px 10px 16px 10px;
+      }
     }
     & section {
       background: $contrast-color;
@@ -109,10 +114,10 @@
   }
   & .a0yzp2{
     text-align: center;
-    margin-bottom: 20px;
-    height: 169px;
-    border-bottom: 1px solid #f443361f;
+    max-height: 169px;
+    border-top: 1px solid rgba(244, 67, 54, 0.1215686275);
     width: 71%;
+    padding-top: 10px;
      & img {transition: 200ms ease-in};
     & h4{
       font-size: 16px !important;

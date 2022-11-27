@@ -2,22 +2,17 @@ import Layout from "../../components/Layout";
 import { DisplaySizes } from "../../utils/common";
 import PPricingRender from "../../components/render-phone-pricing";
 import RenderSpecs from "../../components/phone-specs-render";
-import {
-  FaFeather,
-  FaFeatherAlt,
-  FaFire,
-  FaHeart,
-  FaStopwatch,
-  FaTerminal,
-  FaThumbsDown,
-} from "react-icons/fa";
+import { FaFeatherAlt, FaFire, FaHeart, FaThumbsDown } from "react-icons/fa";
 import { EcomStore } from "../../utils/ecom-store-list";
 import Reviews from "../../components/reviews";
 import { useInView } from "react-intersection-observer";
 import { getWatch } from "../../lib/data-store";
+import { useState } from "react";
+import Message from "../../components/message";
 export default function MobileView(props: any) {
   const items = props.watch && props.watch[0];
-  console.log("release: ", items);
+  const [message, setMessage] = useState<any>(false);
+
   const middleViews = (c: string) => {
     if (c === "camera") {
       let y = items?.short_detail["main-camera"];
@@ -58,6 +53,9 @@ export default function MobileView(props: any) {
   });
   return (
     <Layout title={items?.name}>
+      {message && (
+        <Message message={message.message} variant={message.variant} />
+      )}
       <div className='mobile-view fade-in'>
         <div className='page-size mobile-top-view'>
           <picture>
@@ -252,7 +250,14 @@ export default function MobileView(props: any) {
                   );
                 })}
               </div>
-              {<Reviews reviews={{}} />}
+              {
+                <Reviews
+                  reviews={{}}
+                  post_slug={items.slug}
+                  name={items?.name}
+                  setMessage={(m: any) => setMessage(m)}
+                />
+              }
             </div>
           </div>
         </div>

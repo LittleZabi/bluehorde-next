@@ -19,18 +19,16 @@
         min-height: 47px;
         border-radius: 6px;
         padding: 16px 14px;
-        box-shadow: 1px 1px 9px 0px rgba(0, 0, 0, 0.1803921569);
+        box-shadow: 1px 1px 9px 0px #0000002e;
         position: relative;
-        background-color: #ffffffe3;
-        -webkit-backdrop-filter: blur(4px);
-        backdrop-filter: blur(4px);
+        background-color: #ffffffe8;
         &::before{
             content: " ";
-            border-left: 2px solid #00b0ff;
+            border-left: 2px solid #08c9ff;
             position: absolute;
             height: 100%;
             width: 2px;
-            left: -13px;
+            left: -8px;
             top: 43px;
         }
         &.no-trail::before{
@@ -38,30 +36,30 @@
         }
     }
     & .profile{
-        background: #00b0ff;
+        background: #08c9ff;
         color: white;
-        width: 50px;
-        height: 50px;
+        width: 36px;
+        height: 36px;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-weight: bold;
-        font-size: 20px;
-        margin-left: -51px;
+        font-size: 16px;
+        margin-left: -41px;
         margin-right: 10px;
         letter-spacing: 1px;
         z-index: 1;
-        border:1px solid #00000030;
+        border: 1px solid #00000030;
     }
     & .a92wqi{
         margin-left: 5px;
         margin-top: -56px;
         & p{
             font-weight: bold;
-            font-size: 15px;
-            color: #00b0ff;
-            padding: 0;
+            font-size: 17px;
+            color: #08c9ff;
+            padding: 9px 0;
             margin: 0;
         }
         & .a-23{
@@ -85,6 +83,19 @@
             align-items: center;
             height: 21px;
             margin-bottom: 4px;
+        }
+        & h5{
+            padding: 10px;
+            & b{
+                color: #e91e63;
+            }
+        }
+        & .cmnt-note{
+            max-width: 545px;
+            display: block;
+            margin: 3px 12px;
+            font-size: 12px;
+          
         }
     }
     & .pro-987{

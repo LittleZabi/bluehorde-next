@@ -7,6 +7,9 @@ import {
 import db from "../utils/db";
 import { itemPerPage } from "../utils/config";
 
+import requestIp from "request-ip";
+import blueRex from "../utils/blueRex";
+
 export async function getCategories(type: string) {
   await db.connect();
   const data: any = await categoriesModal.find(

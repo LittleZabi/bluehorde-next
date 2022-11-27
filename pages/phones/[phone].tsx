@@ -7,7 +7,10 @@ import { EcomStore } from "../../utils/ecom-store-list";
 import Reviews from "../../components/reviews";
 import { useInView } from "react-intersection-observer";
 import { getPhone } from "../../lib/data-store";
+import { useState } from "react";
+import Message from "../../components/message";
 export default function MobileView(props: any) {
+  const [message, setMessage] = useState<any>(false);
   const items = props.phone && props.phone[0];
   const middleViews = (c: string) => {
     if (c === "camera") {
@@ -50,6 +53,9 @@ export default function MobileView(props: any) {
   });
   return (
     <Layout title={items?.name}>
+      {message && (
+        <Message message={message.message} variant={message.variant} />
+      )}
       <div className='mobile-view fade-in'>
         <div className='page-size mobile-top-view'>
           <picture>
@@ -250,7 +256,14 @@ export default function MobileView(props: any) {
                   );
                 })}
               </div>
-              {<Reviews reviews={{}} />}
+              {
+                <Reviews
+                  reviews={{}}
+                  post_slug={items.slug}
+                  name={items?.name}
+                  setMessage={(m: any) => setMessage(m)}
+                />
+              }
             </div>
           </div>
         </div>

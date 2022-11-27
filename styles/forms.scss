@@ -1,0 +1,48 @@
+.sign-view{
+    & .page-size.to-center{
+        height: 100vh
+    }
+    & .form-view{
+        text-align: center;
+        & svg{
+            font-size: 28px;
+            margin: 10px;
+        }
+        & a{
+            color: white;
+            text-align: center;
+        }
+    }
+}
+.review-form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    & input, & textarea{
+        width: 550px;
+        height: 37px;
+        padding: 0 10px;
+        margin: 3px 12px;
+        background: #9cffa63b;
+        border: none;
+        border-bottom: 2px solid #9cffa6;
+        border-radius: 5px 5px 0 0;
+    }
+    & textarea{
+        height: 60px;
+    }
+    & button, & input[type='submit']{
+        width: 200px;
+        height: 40px;
+        border: 1px solid #9cffa6;
+        border-radius: 5px;
+        background: #9cffa6;
+        color: black;
+        margin: 3px 12px;
+        font-size: 14px;
+        font-family: $secondary-fonts;
+        &:hover{
+            background: #78eb84
+        }
+    }
+}

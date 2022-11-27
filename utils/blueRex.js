@@ -1,5 +1,6 @@
 "use strict";
 const blueRex = {
+  status: 0,
   setParams: (data, url = "") => {
     let h = "";
     for (let k in data) h += k + "=" + data[k] + "&";
@@ -17,6 +18,7 @@ const blueRex = {
   },
   get: (url, data = {}, headers = {}, async = true) => {
     let x = new XMLHttpRequest();
+    blueRex.status = 0;
     return new Promise((a, b) => {
       x.onreadystatechange = function () {
         if (this.readyState === 4) {
@@ -26,6 +28,7 @@ const blueRex = {
           } else {
             b(this.response);
           }
+          blueRex.status = x.status;
         }
       };
       let url_ = blueRex.setParams(data, url);
@@ -36,6 +39,7 @@ const blueRex = {
     });
   },
   post: (url, data = {}, headers = {}, async = true) => {
+    blueRex.status = 0;
     let x = new XMLHttpRequest();
     return new Promise((a, b) => {
       x.onreadystatechange = function () {
@@ -46,6 +50,7 @@ const blueRex = {
           } else {
             b(this.response);
           }
+          blueRex.status = x.status;
         }
       };
       x.open("POST", url, async);

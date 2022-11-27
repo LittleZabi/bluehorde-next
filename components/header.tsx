@@ -20,22 +20,21 @@ function Header() {
           <div>
             <ul>
               <li>
-                <a
-                  className={pathname == "sign-in" ? "active" : "c"}
-                  href='#'
-                  title='just login'
-                >
-                  SIGN IN
-                </a>
+                <Link href='/sign-in'>
+                  <a className={pathname == "sign-in" ? "active" : "c"}>
+                    SIGN IN
+                  </a>
+                </Link>
               </li>
               <li>
-                <a
-                  className={pathname == "sign-up" ? "active" : "c"}
-                  href='#'
-                  title='create a new account'
-                >
-                  SIGN UP
-                </a>
+                <Link href='/sign-up'>
+                  <a
+                    className={pathname == "sign-up" ? "active" : "c"}
+                    title='create a new account'
+                  >
+                    SIGN UP
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -66,8 +65,8 @@ function Header() {
                 <Link href='/laptops'>
                   <a>Pc Laptops</a>
                 </Link>
-                <Link href=''>
-                  <a href='#'>Smart Watches</a>
+                <Link href='/watches'>
+                  <a>Smart Watches</a>
                 </Link>
               </div>
             </div>

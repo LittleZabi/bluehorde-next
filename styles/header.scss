@@ -39,7 +39,7 @@ header {
             color: $primary-color;
             font-size: 14px;
             font-weight: bold;
-            &:hover {
+            &:hover, &.active {
               color: $primary-color-reflex;
             }
           }

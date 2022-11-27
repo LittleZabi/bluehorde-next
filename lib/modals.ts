@@ -1,4 +1,28 @@
 import mongoose from "mongoose";
+const visitorsSchema = new mongoose.Schema(
+  {
+    ip: { type: String, required: true },
+    visits: { type: Number, required: true },
+    location: { type: Object, required: true },
+  },
+  {
+    timestamps: true,
+    strict: false,
+  }
+);
+const reviewsSchema = new mongoose.Schema(
+  {
+    username: { type: String, required: true },
+    comment: { type: Object, required: true },
+    ip: { type: String, required: true },
+    location: { type: Object, required: false },
+    post_id: { type: String, required: true },
+  },
+  {
+    timestamps: true,
+    strict: false,
+  }
+);
 const laptopsSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -62,3 +86,7 @@ export const smartModal: any =
 export const watchesModal: any =
   mongoose.models.smart_watches ||
   mongoose.model("smart_watches", watchesSchema);
+export const reviewsModal: any =
+  mongoose.models.reviews || mongoose.model("reviews", reviewsSchema);
+export const visitorsModal: any =
+  mongoose.models.visitors || mongoose.model("visitors", visitorsSchema);

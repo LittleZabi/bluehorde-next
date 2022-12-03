@@ -1,9 +1,24 @@
 import mongoose from "mongoose";
+const usersSchema = new mongoose.Schema(
+  {
+    username: { type: String, required: true, unique: true },
+    fullname: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    country: { type: String, required: true },
+    notifyme: { type: Boolean, required: false },
+    active: { type: Boolean, required: true, default: false },
+    code: { type: Number, required: true },
+  },
+  {
+    timestamps: true,
+    strict: false,
+  }
+);
 const visitorsSchema = new mongoose.Schema(
   {
     ip: { type: String, required: true },
     visits: { type: Number, required: true },
-    location: { type: Object, required: true },
   },
   {
     timestamps: true,
@@ -90,3 +105,5 @@ export const reviewsModal: any =
   mongoose.models.reviews || mongoose.model("reviews", reviewsSchema);
 export const visitorsModal: any =
   mongoose.models.visitors || mongoose.model("visitors", visitorsSchema);
+export const Users: any =
+  mongoose.models.users || mongoose.model("users", usersSchema);

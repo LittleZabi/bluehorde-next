@@ -54,7 +54,11 @@ export default function MobileView(props: any) {
   return (
     <Layout title={items?.name}>
       {message && (
-        <Message message={message.message} variant={message.variant} />
+        <Message
+          handleClose={() => setMessage(false)}
+          message={message.message}
+          variant={message.variant}
+        />
       )}
       <div className='mobile-view fade-in'>
         <div className='page-size mobile-top-view'>

@@ -21,6 +21,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        align-items: flex-end;
         & section{
             border-bottom: 1px solid #4caf5026;
             display: flex;

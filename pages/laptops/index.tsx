@@ -4,10 +4,18 @@ import RightSide from "../../components/right-side";
 import { useState } from "react";
 import FilterCompo from "../../components/filter-compo";
 import Layout from "../../components/Layout";
+import Message from "../../components/message";
 export default function Laptops(props: any) {
-  const [catItems, setCateItems] = useState<any>();
+  const [message, setMessage] = useState<any>(false);
   return (
     <Layout title={"Laptops Categories "}>
+      {message && (
+        <Message
+          handleClose={() => setMessage(false)}
+          message={message.message}
+          variant={message.variant}
+        />
+      )}
       <div className='products fade-in'>
         <div className='top-view'>
           <picture>
@@ -20,23 +28,15 @@ export default function Laptops(props: any) {
         <FilterCompo parentName={"laptops categories"} />
         <div className='page-size items categ-flex'>
           <div className='container'>
-            {catItems && catItems.length > 0
-              ? catItems.map((item: any, i: number) => (
-                  <ProductCategRender
-                    key={i}
-                    asRender='laptops/category'
-                    item={item}
-                  />
-                ))
-              : props.categories.map((item: any, i: number) => (
-                  <ProductCategRender
-                    key={i}
-                    asRender='laptops/category'
-                    item={item}
-                  />
-                ))}
+            {props.categories.map((item: any, i: number) => (
+              <ProductCategRender
+                key={i}
+                asRender='laptops/category'
+                item={item}
+              />
+            ))}
           </div>
-          <RightSide />
+          <RightSide setMessage={(m: any) => setMessage(m)} />
         </div>
       </div>
     </Layout>

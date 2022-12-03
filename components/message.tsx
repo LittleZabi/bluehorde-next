@@ -1,18 +1,23 @@
 import { FaCheck } from "react-icons/fa";
-
+import { showAlertTime } from "../utils/config";
+import { useEffect } from "react";
 const Message = (props: any) => {
-  const closeModal = (e: any) => {
-    if (props.handleClose) {
+  useEffect(() => {
+    setTimeout(() => {
       props.handleClose();
-    } else {
-      e.target.parentNode.style.display = "none";
-    }
-  };
+    }, showAlertTime * 1000);
+  }, [props]);
   return (
     <div
       className={`message-box ${props.variant || "success"}`}
       style={props.style ? props.style : {}}
     >
+      <div
+        className='filler'
+        style={{
+          animationDuration: `${showAlertTime}s`,
+        }}
+      ></div>
       <svg
         data-v-347a4ac8=''
         xmlns='http://www.w3.org/2000/svg'
@@ -41,7 +46,7 @@ const Message = (props: any) => {
         )}
         {props.message}
       </span>
-      <span className='close' onClick={(e) => closeModal(e)}>
+      <span className='close' onClick={() => props.handleClose()}>
         &times;
       </span>
     </div>

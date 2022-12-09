@@ -1,21 +1,27 @@
 import { FaCheck } from "react-icons/fa";
 import { showAlertTime } from "../utils/config";
 import { useEffect } from "react";
-const Message = (props: any) => {
+const Message = ({
+  message,
+  handleClose,
+  variant = "success",
+  style = {},
+  closeAfter = showAlertTime,
+}) => {
   useEffect(() => {
     setTimeout(() => {
-      props.handleClose();
-    }, showAlertTime * 1000);
-  }, [props]);
+      handleClose();
+    }, closeAfter * 1000);
+  }, [handleClose, closeAfter]);
   return (
     <div
-      className={`message-box ${props.variant || "success"}`}
-      style={props.style ? props.style : {}}
+      className={`message-box ${variant || "success"}`}
+      style={style ? style : {}}
     >
       <div
         className='filler'
         style={{
-          animationDuration: `${showAlertTime}s`,
+          animationDuration: `${closeAfter}s`,
         }}
       ></div>
       <svg
@@ -31,9 +37,7 @@ const Message = (props: any) => {
         ></path>
       </svg>
       <span className='a938237502'>
-        {props.variant == "error" ||
-        props.variant == "alert" ||
-        props.variant == "danger" ? (
+        {variant == "error" || variant == "alert" || variant == "danger" ? (
           <picture>
             <img
               className='alert-392'
@@ -44,9 +48,9 @@ const Message = (props: any) => {
         ) : (
           <FaCheck className='check-29838' />
         )}
-        {props.message}
+        {message}
       </span>
-      <span className='close' onClick={() => props.handleClose()}>
+      <span className='close' onClick={() => handleClose()}>
         &times;
       </span>
     </div>

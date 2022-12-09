@@ -1,17 +1,19 @@
 import "../styles/main.scss";
 import { useEffect, useCallback } from "react";
 import blueRex from "../utils/blueRex";
+import { StoreProvider } from "../context/context";
 function App({ Component, pageProps }) {
-  let i = 0;
   const setVisitor = useCallback(async () => {
-    if (i === 0) {
-      await blueRex.get("/api/visitors/?set=1");
-    } else i++;
-  }, [i]);
+    await blueRex.get("/api/visitors/?set=1");
+  }, []);
   useEffect(() => {
     setVisitor();
   }, [setVisitor]);
-  return <Component {...pageProps} />;
+  return (
+    <StoreProvider>
+      <Component {...pageProps} />
+    </StoreProvider>
+  );
 }
 
 export default App;

@@ -1,0 +1,100 @@
+.profile-view{
+    background: white;
+    min-height: 100vh;
+    & .container{
+        display: flex;
+        justify-content: center;
+        background: #ffffff;
+        width: min-content;
+        padding: 14px;
+        border-radius: 11px;
+        border: 1px solid #00000008;
+        box-shadow: 3px 2px 9px 1px #0000001a;
+    }
+   
+    & .sign-view .form-view{
+        background: none;
+        border:none;
+        & svg{
+            color: #0800ff12;
+        }
+        & .a90023{
+            border-radius: 25px;
+            padding: 10px 10px;
+            margin-top: 7px;
+            width: 100%;
+        }
+    }
+    & .a-9x9x9x9{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgb(239, 239, 239);
+        padding-bottom: 2px;
+        & span{
+            color: black;
+            width: auto;
+            margin: 0;
+            display: inline;
+            margin-left: 11px;
+        }
+        & .a-clowa{
+            font-weight: bold;
+        }
+        & svg{
+            color: black !important;
+        }
+    }
+    & .sign-view input{
+        color: black;
+    } 
+    & .sign-view h2{
+        color: black;
+    }
+    &  .sign-view button{
+        background: #000000;
+        color: white;
+        border-radius: 28px;
+        border: none;
+        width: 282px;
+        height: 42px;
+    }
+    & label{
+        color: black;
+    }
+   & .left{
+        display: flex;
+        flex-direction: column;
+        border-right: 2px solid #0000000d;
+        & .left-profile{
+            color: black;
+            min-width: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            & .a-kpow2{
+                width: 60px;
+                height: 60px;
+                font-size: 19px;
+            }
+        }
+        & ul{
+            & li{
+                padding: 4px 3px;
+                // transition: 200ms;
+                cursor: pointer;
+                &:hover{
+                    color: black;
+                }
+                 &.active{
+                    font-weight: bold;
+                    
+                }
+            }
+        }
+    }
+}
+.profile-username{
+    padding: 0;
+    margin: 8px 0 0px 0;
+}

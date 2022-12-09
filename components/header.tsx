@@ -1,10 +1,18 @@
 import { WEBSITE_NAME } from "../utils/constants";
 import { HiHome } from "react-icons/hi";
 import { BsBellFill } from "react-icons/bs";
+import { useContext, useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { Store } from "../context/context";
+import { setUserCharName } from "../utils/common";
 function Header() {
   const router = useRouter();
+  const { state, dispatch } = useContext<any>(Store);
+  const [user, setUser] = useState<any>();
+  useEffect(() => {
+    setUser(state.user);
+  }, [state]);
   let pathname: string[] | string = router.pathname.split("/");
   if (pathname[1] === "") pathname = pathname[0];
   else pathname = pathname[1];
@@ -19,23 +27,48 @@ function Header() {
           </Link>
           <div>
             <ul>
-              <li>
-                <Link href='/sign-in'>
-                  <a className={pathname == "sign-in" ? "active" : "c"}>
-                    SIGN IN
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href='/sign-up'>
-                  <a
-                    className={pathname == "sign-up" ? "active" : "c"}
-                    title='create a new account'
-                  >
-                    SIGN UP
-                  </a>
-                </Link>
-              </li>
+              {user ? (
+                <>
+                  <li>
+                    {user.image ? (
+                      <picture>
+                        <img src={user.image} alt={user.username} />
+                      </picture>
+                    ) : (
+                      <div className='a-kpow2'>
+                        {setUserCharName(user.fullname)}
+                      </div>
+                    )}
+                  </li>
+                  <li className='u-profile-238'>
+                    <Link href='/user/profile'>
+                      <a className={pathname == "profile" ? "active" : "c"}>
+                        {user.username}
+                      </a>
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link href='/user/sign-in'>
+                      <a className={pathname == "sign-in" ? "active" : "c"}>
+                        SIGN IN
+                      </a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href='/user/sign-up'>
+                      <a
+                        className={pathname == "sign-up" ? "active" : "c"}
+                        title='create a new account'
+                      >
+                        SIGN UP
+                      </a>
+                    </Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </ul>

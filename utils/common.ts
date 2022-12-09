@@ -29,3 +29,10 @@ export const randomChar = (length: number) => {
   }
   return new_;
 };
+export const setUserCharName = (name: string) => {
+  let k = name.split(" ");
+  let n = "";
+  k.map((e, i) => (i < 2 ? (n += e[0]) : ""));
+  if (n === "") n = name[0];
+  return n.toUpperCase();
+};

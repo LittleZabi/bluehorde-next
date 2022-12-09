@@ -2,8 +2,8 @@ import { NextApiRequest, NextApiResponse } from "next";
 import bcrypt from "bcryptjs";
 import { Users } from "../../lib/modals";
 import db from "../../utils/db";
-import { generateToken } from "../../lib/user-tokens";
 import { randomChar } from "../../utils/common";
+// import sendEmailTo from "../../emails-library/library";
 export default async function users(req: NextApiRequest, res: NextApiResponse) {
   await db.connect();
   const { password, username, email, fullname, repassword, notifyme, country } =
@@ -14,7 +14,9 @@ export default async function users(req: NextApiRequest, res: NextApiResponse) {
     email === "" ||
     fullname === "";
   if (confirm) {
-    res.send("ErrorOnUserInfo");
+    res
+      .status(422)
+      .send("Error on user information please check it again and submit!");
     return 0;
   }
   const isUNExsit = await Users.findOne(
@@ -22,12 +24,14 @@ export default async function users(req: NextApiRequest, res: NextApiResponse) {
     { username: 1, _id: 0 }
   );
   if (isUNExsit) {
-    res.send("UsernameExist");
+    res
+      .status(422)
+      .send("Error username is already taken please choose another username!");
     return 0;
   }
   const isEMexist = await Users.findOne({ email }, { _id: 0, email: 1 });
   if (isEMexist) {
-    res.send("EmailExist");
+    res.status(422).send("Email is registered! login with email or choose new");
     return 0;
   }
   try {
@@ -42,16 +46,10 @@ export default async function users(req: NextApiRequest, res: NextApiResponse) {
       code: randomChar(25),
     });
     const createdUser = await user.save();
-    res.status(200).send({
-      username: createdUser.username,
-      fullname: createdUser.fullname,
-      email: createdUser.email,
-      _id: createdUser._id,
-      country: createdUser.country,
-      token: generateToken(createdUser),
-    });
+    // sendEmailTo("zohaibjozvi@gmail.com", "helloworld");
+    res.status(200).send("success");
   } catch (e) {
     console.error(e);
-    res.status(422).send("ErrorDuringProcess");
+    res.status(422).send("Error occured during sign up! try again later");
   }
 }

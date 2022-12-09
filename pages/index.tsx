@@ -2,7 +2,6 @@ import Link from "next/link";
 import Layout from "../components/Layout";
 import LogosStrip from "../components/logos-strip";
 import MiddleView from "../components/middle";
-
 export default function Home() {
   return (
     <Layout title={"Welcome "}>

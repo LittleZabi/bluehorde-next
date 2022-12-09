@@ -3,12 +3,12 @@ import {
   smartModal,
   laptopsModal,
   watchesModal,
+  Users,
 } from "./modals";
 import db from "../utils/db";
 import { itemPerPage } from "../utils/config";
-
-import requestIp from "request-ip";
-import blueRex from "../utils/blueRex";
+import { randomChar } from "../utils/common";
+import { generateToken } from "./user-tokens";
 
 export async function getCategories(type: string) {
   await db.connect();
@@ -85,4 +85,45 @@ export const getLaptop = async (slug: any) => {
   await db.connect();
   const item: object = await laptopsModal.find({ slug: slug }, { _id: 0 });
   return JSON.stringify(item);
+};
+export const solveForgotPassword = async (code: any) => {
+  await db.connect();
+  const user: any = await Users.findOne(
+    { code: code },
+    { _id: 1, username: 1, fullname: 1, email: 1, country: 1 }
+  );
+  if (user) {
+    return {
+      status: 1,
+      username: user.username,
+      fullname: user.fullname,
+      email: user.email,
+      _id: user._id,
+      country: user.country,
+      token: generateToken(user),
+    };
+  } else {
+    return { status: 0 };
+  }
+};
+export const solveUserAuth = async (code: any) => {
+  await db.connect();
+  const user: any = await Users.findOne(
+    { code: code },
+    { _id: 1, username: 1, fullname: 1, email: 1, country: 1 }
+  );
+  if (user) {
+    await Users.update({ _id: user._id }, { active: 1, code: randomChar(25) });
+    return JSON.stringify({
+      status: 1,
+      username: user.username,
+      fullname: user.fullname,
+      email: user.email,
+      _id: user._id,
+      country: user.country,
+      token: generateToken(user),
+    });
+  } else {
+    return JSON.stringify({ status: 0 });
+  }
 };

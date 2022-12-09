@@ -1,7 +1,4 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-
 import { SMTPClient } from "emailjs";
-
 export default function sendEmailTo(email: string, template: string) {
   try {
     const client = new SMTPClient({

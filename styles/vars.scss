@@ -44,7 +44,13 @@
   font-family: "quicksands";
   src: url("./fonts/quicksand-regular.ttf");
 }
-$primary-fonts: "quicksands";
+@font-face {
+  font-family: manrope;
+  src: url(./fonts/Manrope/static/Manrope-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+$primary-fonts: "manrope";
 $secondary-fonts: "proxima";
 $default-color: rgb(113, 113, 113);
 $primary-color: rgb(255, 0, 153);

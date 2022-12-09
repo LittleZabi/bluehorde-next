@@ -2,6 +2,7 @@ import { FaFire, FaHeart, FaMapMarkerAlt } from "react-icons/fa";
 import { useState, useEffect, useCallback } from "react";
 import blueRex from "../utils/blueRex.js";
 import moment from "moment";
+import { setUserCharName } from "../utils/common";
 export default function Reviews({ reviews, name, post_slug, setMessage }) {
   const [comments, setComments] = useState<[]>([]);
   const getComments = useCallback(async () => {
@@ -45,13 +46,7 @@ export default function Reviews({ reviews, name, post_slug, setMessage }) {
         }
       });
   }
-  const setUserCharName = (name: string) => {
-    let k = name.split(" ");
-    let n = "";
-    k.map((e, i) => (i < 2 ? (n += e[0]) : ""));
-    if (n === "") n = name[0];
-    return n.toUpperCase();
-  };
+
   useEffect(() => {
     getComments();
   }, [getComments]);

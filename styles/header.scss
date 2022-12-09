@@ -127,3 +127,22 @@ header {
     }
   }
 }
+.u-profile-238 a{
+  color: rgb(175 184 239) !important;
+  font-size: 16px !important;
+  &:hover{
+    color: white !important;
+  }
+}
+
+.a-kpow2{
+  background: #3f51b5d1;
+  border-radius: 50%;
+  color: white;
+  width: 37px;
+  height: 37px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}

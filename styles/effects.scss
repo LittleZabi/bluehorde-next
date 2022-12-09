@@ -97,3 +97,30 @@
       transform: translateX(0px);
     }
   }
+  .fade-in-eff{
+    transform: scale(1.5);
+    opacity: 0;
+    animation: fade-in-eff 400ms ease-in-out forwards 1;
+    @keyframes fade-in-eff {
+      0%{
+        opacity: 0;
+      }
+      100%{
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+  }
+  .fade-out-eff{
+    transform: scale(1);
+    animation: fade-out-eff 300ms ease-in-out forwards 1;
+    @keyframes fade-out-eff {
+      0%{
+        opacity: 1;
+      }
+      100%{
+        opacity: 0;
+        transform: scale(1.5);
+      }
+    }
+  }

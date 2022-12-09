@@ -8,7 +8,7 @@ const usersSchema = new mongoose.Schema(
     country: { type: String, required: true },
     notifyme: { type: Boolean, required: false },
     active: { type: Boolean, required: true, default: false },
-    code: { type: Number, required: true },
+    code: { type: String, required: true },
   },
   {
     timestamps: true,
